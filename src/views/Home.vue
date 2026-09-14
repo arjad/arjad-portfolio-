@@ -10,6 +10,7 @@
       </router-link>
     </div>
     <Journey id="journey" />
+    <SocialStats id="social_stats" />
     <WriteMe id="write_me" />
     <Contact id="contact" />
   </div>
@@ -23,6 +24,7 @@ import Project from "../components/project.vue";
 import Journey from "../components/journey.vue";
 import Contact from "../components/contact.vue";
 import WriteMe from "../components/writeMe.vue";
+import SocialStats from "../components/socialStats.vue";
 
 export default {
   name: "Home",
@@ -34,6 +36,7 @@ export default {
     Journey,
     Contact,
     WriteMe,
+    SocialStats,
   },
 };
 </script>

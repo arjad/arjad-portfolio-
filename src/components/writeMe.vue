@@ -1,6 +1,6 @@
 <template>
     <div id="write_me">
-        <Heading :title="'Contact Me'" :subtitle="'Let\'s work together! Contact me directly on Upwork'" />
+        <Heading :title="'Contact Me'" :subtitle="'Let\'s work together! Feel free to reach out via email or social media'" />
         <div class="container container-div" data-aos="fade-left" data-aos-duration="1000">
             <div class="picture-container">
                 <div class="picture d-flex justify-content-center align-items-center">
@@ -9,10 +9,10 @@
             </div>
 
             <div class="contact-cta-container text-center d-flex flex-column align-items-center justify-content-center p-4">
-                <h3 class="cta-title mb-3">Hire Me on Upwork</h3>
+                <h3 class="cta-title mb-3">Get In Touch</h3>
                 <p class="cta-desc mb-4">I'm available for freelance projects, full-stack web development, and AI integration services.</p>
-                <a href="https://www.upwork.com/freelancers/~01a73a1abd70f9f27f" target="_blank" class="upwork-cta-btn">
-                    <i class="fa-brands fa-upwork me-2"></i> Contact Me on Upwork
+                <a href="mailto:arjadgohar14@gmail.com" class="upwork-cta-btn email-cta-btn">
+                    <i class="fas fa-envelope me-2"></i> Email Me
                 </a>
             </div>
         </div>
@@ -81,12 +81,13 @@ export default {
   line-height: 1.6;
 }
 
-.upwork-cta-btn {
+.upwork-cta-btn, .email-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #14a800;
+  background: #14a800; /* Keeping a distinct color, or maybe change to email blue */
+  background: #42b883;
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 700;
@@ -94,7 +95,7 @@ export default {
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(20, 168, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(66, 184, 131, 0.3);
 
   i {
     margin-left: 0.5rem;
@@ -102,10 +103,10 @@ export default {
   }
 
   &:hover {
-    background: #108a00;
+    background: #35495e;
     color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(20, 168, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(53, 73, 94, 0.5);
     text-decoration: none;
   }
 }
@@ -145,7 +146,7 @@ export default {
     font-size: 1rem !important;
   }
 
-  .upwork-cta-btn {
+  .upwork-cta-btn, .email-cta-btn {
     width: 90% !important;
     padding: 0.85rem 1.5rem !important;
     font-size: 1rem !important;

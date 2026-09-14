@@ -46,12 +46,32 @@
       </div>
     </div>
 
-    <Heading :title="'Industries'" :subtitle="'Sectors I Have Worked With'" />
-    <div class="industries-grid row justify-content-center g-3 my-4 mb-5" data-aos="fade-up">
-      <div v-for="(industry, index) in industries" :key="index" class="col-6 col-md-4">
-        <div class="industry-card p-4 text-center">
-          <i :class="industry.icon + ' industry-icon mb-3 fs-2 text-green'"></i>
-          <h5 class="industry-name m-0 fw-bold">{{ industry.name }}</h5>
+    <Heading :title="'Industries'" :subtitle="'Delivering bespoke digital solutions, strategic architectures, and product experiences across diverse industry verticals.'" />
+    <div class="row g-4 my-5 px-lg-3" data-aos="fade-up">
+      <div v-for="(industry, index) in industries" :key="index" class="col-12 col-xl-6">
+        <div class="industry-list-card h-100 p-4 position-relative d-flex flex-column">
+          <div class="d-flex align-items-center justify-content-between mb-3 w-100 gap-3">
+            <div class="d-flex align-items-center">
+              <div class="industry-icon-box flex-shrink-0 d-flex align-items-center justify-content-center" :style="{ backgroundColor: '#f3f4f6' }">
+                <i :class="industry.iconClass" style="color: #4b5563; font-size: 1.5rem;"></i>
+              </div>
+              <h4 class="industry-title fw-bold m-0" style="margin-left: 16px !important;">{{ industry.name }}</h4>
+            </div>
+            <span class="industry-badge flex-shrink-0" :style="{ backgroundColor: industry.badgeColor, color: industry.badgeTextColor }">
+              {{ industry.badgeText }}
+            </span>
+          </div>
+          
+          <p class="industry-desc mb-3 flex-grow-1 mt-2">{{ industry.desc }}</p>
+          
+          <hr class="industry-divider my-2">
+          
+          <div class="industry-footer d-flex align-items-center mt-auto">
+            <div class="industry-tag d-flex align-items-center">
+              <span class="tag-dot" :style="{ backgroundColor: industry.tagColor }"></span>
+              <span style="margin-left: 8px !important;">{{ industry.tag }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -124,9 +144,50 @@ export default {
       startDate: "2019-01-01",
       expandedServiceId: null,
       industries: [
-        { name: 'Medical & Healthcare', icon: 'fa-solid fa-stethoscope' },
-        { name: 'Interior Design', icon: 'fa-solid fa-couch' },
-        { name: 'E-commerce', icon: 'fa-solid fa-cart-shopping' }
+        { 
+          name: 'Medical & Healthcare', 
+          badgeText: '12+ Projects',
+          badgeColor: '#fef2f2',
+          badgeTextColor: '#e11d48',
+          iconClass: 'fa-regular fa-heart', // outline heart with pulse/plus or similar. fa-heart is good
+          iconBg: '#f43f5e',
+          desc: 'Telehealth ecosystems, HIPAA-compliant patient portals, EHR workflows, and clinica...',
+          tag: 'HealthTech & Compliance',
+          tagColor: '#ef4444'
+        },
+        { 
+          name: 'Interior Design', 
+          badgeText: '8+ Projects',
+          badgeColor: '#fff7ed',
+          badgeTextColor: '#c2410c',
+          iconClass: 'fa-solid fa-house-user', 
+          iconBg: '#f59e0b',
+          desc: '3D spatial floor planning, interactive material catalogs, architectural specs, and...',
+          tag: '3D / WebGL & Design Systems',
+          tagColor: '#f59e0b'
+        },
+        { 
+          name: 'E-commerce', 
+          badgeText: '20+ Platforms',
+          badgeColor: '#eff6ff',
+          badgeTextColor: '#4338ca',
+          iconClass: 'fa-solid fa-bag-shopping', 
+          iconBg: '#6366f1',
+          desc: 'High-converting headless storefronts, seamless micro-checkouts, omnichannel...',
+          tag: 'Headless & Fintech',
+          tagColor: '#6366f1'
+        },
+        { 
+          name: 'Real Estate', 
+          badgeText: '15+ Portals',
+          badgeColor: '#ecfdf5',
+          badgeTextColor: '#059669',
+          iconClass: 'fa-solid fa-house-chimney', 
+          iconBg: '#10b981',
+          desc: 'PropTech aggregators, automated tenant portals, MLS API integrations, and 360...',
+          tag: 'PropTech & Mapping',
+          tagColor: '#10b981'
+        }
       ],
       iconClients: [
         { name: 'Lala', icon: '/projects/lala-icon.png' },
@@ -194,6 +255,30 @@ export default {
             'CI/CD Pipelines (GitHub Actions)',
             'Cloud Deployment (AWS, Vercel, Netlify)',
             'Performance Monitoring & Security'
+          ]
+        },
+        {
+          id: 'seo',
+          title: 'Search Engine Optimization',
+          icon: 'fa-solid fa-magnifying-glass-chart',
+          desc: 'Driving organic traffic and improving search rankings through data-driven SEO strategies.',
+          details: [
+            'On-Page & Technical SEO',
+            'Keyword Research & Strategy',
+            'Backlink Building & Outreach',
+            'Performance Tracking & Analytics'
+          ]
+        },
+        {
+          id: 'marketing',
+          title: 'Digital Marketing',
+          icon: 'fa-solid fa-bullhorn',
+          desc: 'Creating impactful marketing campaigns to build brand awareness and drive customer acquisition.',
+          details: [
+            'Social Media Marketing',
+            'Pay-Per-Click (PPC) Advertising',
+            'Content Marketing & Strategy',
+            'Email Campaign Management'
           ]
         }
       ]
@@ -313,23 +398,78 @@ ul {
   color: #f59e0b !important;
 }
 
-.industry-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+.industry-list-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 
-  &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(17, 24, 39, 0.2);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -20px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0,0,0,0.02) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
   }
 }
-.industry-name {
+
+.industry-list-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.industry-list-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.industry-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+}
+
+.industry-title {
   color: #111827;
+  font-size: 1.4rem;
+}
+
+.industry-badge {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.industry-desc {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.industry-divider {
+  border-color: rgba(0, 0, 0, 0.08);
+  margin: 1.5rem 0;
+}
+
+.industry-tag {
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .marquee-section {
@@ -380,7 +520,7 @@ ul {
 .company-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.5rem; /* Increased gap to add space between icon and text */
   padding: 0.5rem 1.25rem;
   background: transparent;
   border: none !important;
@@ -661,9 +801,13 @@ ul {
     color: rgba(255, 255, 255, 0.7) !important;
   }
 
-  .industry-card {
-    background: rgba(40, 40, 40, 0.6) !important;
+  .industry-list-card {
+    background: rgba(40, 40, 40, 0.8) !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
+
+    &::after {
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    }
 
     &:hover {
       border-color: rgba(255, 255, 255, 0.25) !important;
@@ -671,8 +815,20 @@ ul {
     }
   }
 
-  .industry-name {
+  .industry-title {
     color: #ffffff !important;
+  }
+
+  .industry-desc {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .industry-tag {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .industry-divider {
+    border-color: rgba(255, 255, 255, 0.1) !important;
   }
 
   .service-icon-wrapper {
