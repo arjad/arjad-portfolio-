@@ -1,7 +1,7 @@
 <template>
-  <section class="social-stats-section py-5 my-5" id="social_stats">
+  <section class="social-stats-section py-5 my-3" id="social_stats">
     <div class="container text-center">
-      <h3 class="mb-5 section-title" data-aos="fade-up">My Community</h3>
+      <Heading :title="'My Community'" :subtitle="'Join my growing network across various social platforms'" />
       
       <div class="profile-container d-flex flex-column align-items-center justify-content-center" data-aos="zoom-in">
         <div class="profile-image-wrapper mb-4">
