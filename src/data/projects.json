@@ -405,5 +405,85 @@
                 "icon": "fa-solid fa-bell"
             }
         ]
+    },
+    {
+        "id": "aws-devops-cost-optimization",
+        "title": "AWS DevOps & Cloud Cost Optimization",
+        "type": "AWS DevOps Engineer",
+        "description": "Provided ongoing AWS DevOps and cloud infrastructure support for a digital agency managing a multi-account AWS environment.",
+        "problem": "High AWS infrastructure costs and need for reliable multi-account management.",
+        "solution": "Implemented AWS cost and resource optimization, SSL/TLS configuration, DNS management, and supported EC2/ECS infrastructure.",
+        "result": "Reduced monthly AWS infrastructure costs from $X to $Y, while improving infrastructure management and reliability.",
+        "image": "/projects/aws_cost.png",
+        "technologies": [
+            "AWS",
+            "DevOps",
+            "EC2",
+            "ECS",
+            "Route 53",
+            "ACM",
+            "Cloudflare",
+            "IAM"
+        ],
+        "category": "DevOps",
+        "key_features": [
+            {
+                "title": "Cost Optimization",
+                "description": "Reviewed AWS resources and identified unnecessary costs to reduce monthly spend",
+                "icon": "fa-solid fa-money-bill-trend-up"
+            },
+            {
+                "title": "Infrastructure Support",
+                "description": "Managed EC2/ECS, SSL/TLS, and Route 53 DNS across multi-account environment",
+                "icon": "fa-solid fa-server"
+            },
+            {
+                "title": "Reliability & Security",
+                "description": "Handled IAM permissions, cross-account access, and resolved production 502 errors",
+                "icon": "fa-solid fa-shield-halved"
+            }
+        ]
+    },
+    {
+        "id": "aws-devops-ssl-dns-support",
+        "title": "AWS DevOps, SSL, DNS & Cloud Infrastructure Support",
+        "type": "AWS DevOps Engineer",
+        "description": "Provided ongoing AWS DevOps support for a digital agency managing a multi-account AWS environment.",
+        "problem": "Need for secure, reliable, and properly configured cloud infrastructure across multiple AWS accounts.",
+        "solution": "Handled SSL/TLS setup via ACM and Cloudflare, DNS management via Route 53, and IAM permissions.",
+        "result": "Kept cloud infrastructure secure, reliable, and properly configured, seamlessly migrating EC2 instances and resolving 502 errors.",
+        "image": "/projects/aws_optimization.png",
+        "technologies": [
+            "AWS",
+            "DevOps",
+            "Amazon EC2",
+            "Amazon ECS",
+            "Route 53",
+            "AWS ACM",
+            "Cloudflare",
+            "IAM",
+            "SSL/TLS",
+            "DNS",
+            "Cloud Infrastructure",
+            "Troubleshooting"
+        ],
+        "category": "DevOps",
+        "key_features": [
+            {
+                "title": "SSL & DNS Management",
+                "description": "Configured SSL on ALBs using ACM/Cloudflare and managed Route 53 DNS records",
+                "icon": "fa-solid fa-globe"
+            },
+            {
+                "title": "Security & Access",
+                "description": "Reviewed IAM access and managed cross-account permissions securely",
+                "icon": "fa-solid fa-lock"
+            },
+            {
+                "title": "Troubleshooting & Migrations",
+                "description": "Troubleshot 502 errors and supported EC2 migrations between AWS accounts",
+                "icon": "fa-solid fa-wrench"
+            }
+        ]
     }
 ]
