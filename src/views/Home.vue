@@ -2,6 +2,7 @@
   <div class="home">
     <Summary id="summary" />
     <About id="about" />
+    <Process />
     <Project id="projects" :limit="3" />
     <div class="container text-center mt-5 mb-5 pb-5" data-aos="fade-up">
       <router-link to="/projects" class="btn btn-custom-green px-4 rounded-pill shadow-sm">
@@ -18,6 +19,7 @@
 <script>
 import Summary from "../components/summary.vue";
 import About from "../components/about.vue";
+import Process from "../components/process.vue";
 import Project from "../components/project.vue";
 import Contact from "../components/contact.vue";
 import WriteMe from "../components/writeMe.vue";
@@ -28,6 +30,7 @@ export default {
   components: {
     Summary,
     About,
+    Process,
     Project,
     Contact,
     WriteMe,
