@@ -2,25 +2,29 @@
   <section id="summary" class="hero-section">
     <div class="hero-content d-flex flex-column align-items-center justify-content-center text-center">
       <!-- Main Heading & Subtitle -->
-      <h1 class="hero-title">Arjad Gohar</h1>
-      <h2 class="hero-subtitle">Agentic AI & Full Stack Developer</h2>
-      <p class="hero-tagline">I build fast, modern websites designed to <span class="highlight-text">help businesses grow.</span></p>
+      <h1 class="hero-title" data-aos="fade-up">Right Click Solutions</h1>
+      <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Digital Product & AI Agency</h2>
+      <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">We build fast, modern digital products designed to <span class="highlight-text">help businesses grow.</span></p>
 
       <!-- Call to Action Buttons -->
-      <div class="hero-buttons d-flex gap-3 mt-4 mb-4">
+      <div class="hero-buttons d-flex gap-3 mt-4 mb-4" data-aos="fade-up" data-aos-delay="300">
         <button class="btn-hero btn-filled" @click="scrollToSection('projects')">VIEW WORK</button>
         <button class="btn-hero btn-outlined" @click="scrollToSection('contact')">CONTACT</button>
-      </div>
-
       </div>
     </div>
 
     <!-- Featured Overlapping Video Showcase (Half on Hero, Half Below) -->
     <div class="overlapping-video-wrapper">
+      <div data-aos="zoom-in" data-aos-delay="400">
       <div class="video-showcase-card">
         <video autoplay loop muted playsinline controls class="showcase-video">
           <source src="/ok.mp4" type="video/mp4">
         </video>
+        <div class="founder-caption">
+          <span class="founder-name">Arjad Gohar</span>
+          <span class="founder-role">Founder, Right Click Solutions</span>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -68,15 +72,15 @@ export default {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 2px solid rgba(66, 184, 131, 0.4);
+  border: 2px solid rgba(var(--color-primary-rgb), 0.4);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(66, 184, 131, 0.3);
+  box-shadow: 0 25px 60px rgba(17, 24, 39, 0.18), 0 0 35px rgba(var(--color-primary-rgb), 0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 45px rgba(66, 184, 131, 0.45);
+    box-shadow: 0 30px 70px rgba(17, 24, 39, 0.22), 0 0 45px rgba(var(--color-primary-rgb), 0.45);
   }
 }
 
@@ -87,7 +91,25 @@ export default {
   display: block;
 }
 
+.founder-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.85rem 1rem;
+  font-family: 'Inter', sans-serif;
+}
 
+.founder-name {
+  font-weight: 700;
+  color: #111827;
+}
+
+.founder-role {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
 
 .hero-content {
   position: relative;
@@ -112,9 +134,9 @@ export default {
 }
 
 .highlight-text {
-  color: #42b883;
+  color: var(--color-secondary);
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(66, 184, 131, 0.4);
+  text-shadow: 0 0 10px rgba(var(--color-secondary-rgb), 0.4);
 }
 
 .hero-subtitle {
@@ -154,16 +176,16 @@ export default {
 }
 
 .btn-filled {
-  background: #42b883;
+  background: var(--color-primary);
   color: #ffffff;
-  border: 1px solid #42b883;
-  box-shadow: 0 4px 20px rgba(66, 184, 131, 0.3);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 20px rgba(var(--color-primary-rgb), 0.3);
 
   &:hover {
     background: transparent;
-    color: #42b883;
-    border-color: #42b883;
-    box-shadow: 0 4px 25px rgba(66, 184, 131, 0.4);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 25px rgba(var(--color-primary-rgb), 0.4);
     transform: translateY(-2px);
   }
 }
@@ -268,24 +290,5 @@ export default {
     width: 100%;
     max-width: 250px;
   }
-}
-</style>
-
-<style lang="scss">
-.dark-mode .hero-title {
-  color: #ffffff;
-}
-.dark-mode .hero-subtitle {
-  color: rgba(255, 255, 255, 0.9);
-}
-.dark-mode .hero-tagline {
-  color: rgba(255, 255, 255, 0.7);
-}
-.dark-mode #summary .btn-outlined {
-  color: #ffffff;
-  border-color: #ffffff;
-}
-.dark-mode #summary .btn-outlined:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 </style>

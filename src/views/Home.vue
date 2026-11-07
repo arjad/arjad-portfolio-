@@ -2,16 +2,15 @@
   <div class="home">
     <Summary id="summary" />
     <About id="about" />
-    <Skills v-if="$route.query.hide_skills !== 'true'" id="practicle_skills" />
-    <Project id="projects" :limit="4" />
-    <div class="container text-center mt-4 mb-5 pb-5">
+    <Project id="projects" :limit="3" />
+    <div class="container text-center mt-5 mb-5 pb-5" data-aos="fade-up">
       <router-link to="/projects" class="btn btn-custom-green px-4 rounded-pill shadow-sm">
         View All Projects <i class="fa-solid fa-arrow-right ms-2"></i>
       </router-link>
     </div>
-    <Journey id="journey" />
     <SocialStats id="social_stats" />
-    <WriteMe id="write_me" />
+        <WriteMe id="write_me" />
+
     <Contact id="contact" />
   </div>
 </template>
@@ -19,9 +18,7 @@
 <script>
 import Summary from "../components/summary.vue";
 import About from "../components/about.vue";
-import Skills from "../components/skills.vue";
 import Project from "../components/project.vue";
-import Journey from "../components/journey.vue";
 import Contact from "../components/contact.vue";
 import WriteMe from "../components/writeMe.vue";
 import SocialStats from "../components/socialStats.vue";
@@ -31,9 +28,7 @@ export default {
   components: {
     Summary,
     About,
-    Skills,
     Project,
-    Journey,
     Contact,
     WriteMe,
     SocialStats,
@@ -43,13 +38,14 @@ export default {
 
 <style scoped>
 .btn-custom-green {
-  color: #42b883;
-  border: 1px solid #42b883;
-  background-color: transparent;
+  color: white;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
   transition: all 0.3s ease;
 }
 .btn-custom-green:hover {
-  background-color: #42b883;
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
   color: white;
 }
 </style>

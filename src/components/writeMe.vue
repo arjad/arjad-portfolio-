@@ -1,18 +1,11 @@
 <template>
     <div id="write_me">
-        <Heading :title="'Contact Me'" :subtitle="'Let\'s work together! Feel free to reach out via email or social media'" />
-        <div class="container container-div" data-aos="fade-left" data-aos-duration="1000">
-            <div class="picture-container">
-                <div class="picture d-flex justify-content-center align-items-center">
-                    <img src="/index.png" alt="Contact Me" class="img-fluid contact-illustration" />
-                </div>
-            </div>
-
+        <Heading :title="'Contact Us'" :subtitle="'Let\'s work together! Feel free to reach out via email or social media'" />
+        <div class="container container-div" data-aos="fade-up">
             <div class="contact-cta-container text-center d-flex flex-column align-items-center justify-content-center p-4">
-                <h3 class="cta-title mb-3">Get In Touch</h3>
-                <p class="cta-desc mb-4">I'm available for freelance projects, full-stack web development, and AI integration services.</p>
+                <p class="cta-desc mb-4">Tell us what you're building. We take on web, app, and AI projects for businesses of all sizes.</p>
                 <a href="mailto:arjadgohar14@gmail.com" class="upwork-cta-btn email-cta-btn">
-                    <i class="fas fa-envelope me-2"></i> Email Me
+                    <i class="fas fa-envelope me-2"></i> Email Us
                 </a>
             </div>
         </div>
@@ -35,44 +28,16 @@ export default {
   box-shadow: none;
   width: 100%;
   max-width: 1050px;
-  min-height: 480px;
   border-radius: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.picture-container {
-  width: 50%;
-  height: 100%;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-illustration {
-  max-width: 95%;
-  max-height: 380px;
-  object-fit: contain;
-  border-radius: 16px;
-  transition: transform 0.3s ease;
-}
-
-.contact-illustration:hover {
-  transform: scale(1.03);
-}
-
 .contact-cta-container {
   height: 90%;
   width: 450px;
   max-width: 90%;
-}
-
-.cta-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1f2937;
 }
 
 .cta-desc {
@@ -86,8 +51,7 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #14a800; /* Keeping a distinct color, or maybe change to email blue */
-  background: #42b883;
+  background: var(--color-primary);
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 700;
@@ -95,7 +59,7 @@ export default {
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(66, 184, 131, 0.3);
+  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.3);
 
   i {
     margin-left: 0.5rem;
@@ -103,10 +67,10 @@ export default {
   }
 
   &:hover {
-    background: #35495e;
+    background: var(--color-secondary);
     color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(53, 73, 94, 0.5);
+    box-shadow: 0 10px 25px rgba(var(--color-secondary-rgb), 0.5);
     text-decoration: none;
   }
 }
@@ -120,26 +84,11 @@ export default {
     padding: 1rem 0.5rem !important;
   }
 
-  .picture-container {
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 1.5rem !important;
-  }
-
-  .contact-illustration {
-    max-width: 90% !important;
-    max-height: 260px !important;
-  }
-
   .contact-cta-container {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     padding: 1rem 0.5rem !important;
-  }
-
-  .cta-title {
-    font-size: 1.8rem !important;
   }
 
   .cta-desc {
@@ -153,22 +102,3 @@ export default {
   }
 }
 </style>
-
-<style lang="scss">
-.dark-mode {
-  .cta-title {
-    color: #ffffff !important;
-  }
-  .cta-desc {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-  .container-div {
-    border: none !important;
-    box-shadow: none !important;
-  }
-}
-</style>
-
-
-
-

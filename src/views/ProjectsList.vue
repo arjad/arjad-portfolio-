@@ -3,7 +3,7 @@
     <div class="container mb-3">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <div class="mb-3 mb-md-0 text-center text-md-start">
-          <h2 class="font-weight-bold mb-0">My Projects</h2>
+          <h2 class="font-weight-bold mb-0">Our Projects</h2>
         </div>
         <div style="min-width: 250px;">
           <select id="project-filter" v-model="selectedCategory" @change="updateUrl" class="form-select form-control shadow-sm cursor-pointer">
@@ -84,9 +84,7 @@ export default {
 .projects-page {
   padding-top: 100px !important;
 }
-.dark-mode .projects-page select {
-  background-color: #333;
-  color: white;
-  border-color: #444;
+.projects-page .container {
+  max-width: 1040px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <footer class="footer-compact py-5" id="contact">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <div class="row align-items-center">
           <div class="col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
             <h5 class="mb-3 accent-primary">Navigation</h5>
@@ -13,7 +13,7 @@
             </ul>
           </div>
           <div class="col-md-6 d-flex flex-column align-items-center align-items-md-start ps-md-5 mt-5 mt-md-0">
-            <h5 class="mb-3 accent-primary">Connect with me</h5>
+            <h5 class="mb-3 accent-primary">Connect with us</h5>
             <ul class="list-unstyled socials-grid text-center text-md-start socials-footer w-100">
               <li><a href="https://www.instagram.com/arjad.codes/" target="_blank" class="social-link-full"><i class="fab fa-instagram mr-2"></i> Instagram</a></li>
               <li><a href="https://www.linkedin.com/in/arjad/" target="_blank" class="social-link-full"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
@@ -26,7 +26,7 @@
         </div>
         <div class="row mt-4 pt-4 border-top border-secondary border-opacity-25">
           <div class="col-12 text-center copyright">
-            © 2026 Arjad Gohar. Built with <a href="https://github.com/arjad/Portfolio" target="_blank" class="accent-primary">Vue.js</a>
+            © 2026 Right Click Solutions. All rights reserved.
           </div>
         </div>
       </div>
@@ -56,13 +56,13 @@ export default {
 }
 
 .accent-primary {
-  color: #42b883;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #35495e;
+    color: var(--color-secondary);
     text-decoration: underline;
   }
 }
@@ -80,9 +80,9 @@ export default {
   justify-content: center;
 
   &:hover {
-    color: #42b883;
+    color: var(--color-primary);
     transform: translateY(-2px);
-    text-shadow: 0 0 10px rgba(66, 184, 131, 0.5);
+    text-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.5);
   }
 }
 
@@ -99,7 +99,7 @@ export default {
   }
 
   &:hover {
-    color: #42b883;
+    color: var(--color-primary);
     transform: translateX(-3px);
   }
 }
@@ -111,7 +111,7 @@ export default {
   transition: color 0.3s ease;
 
   &:hover {
-    color: #42b883;
+    color: var(--color-primary);
   }
 }
 
@@ -136,19 +136,3 @@ export default {
   }
 }
 </style>
-
-<style lang="scss">
-.dark-mode {
-  .footer-compact {
-    background: rgba(40, 40, 40, 0.4) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
-  .copyright, .social-link, .social-link-full, .nav-link-footer {
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-  .nav-link-footer:hover, .social-link-full:hover {
-    color: #42b883 !important;
-  }
-}
-</style>
-

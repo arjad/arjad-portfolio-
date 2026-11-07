@@ -1,17 +1,15 @@
 <template>
-  <div id="app" :class="{ 'dark-mode': darkMode }">
+  <div id="app">
     <Nav />
     <router-view />
 
     <ChatBot/>
-    <CanvasAnimation />
   </div>
 </template>
 
 <script>
 import Nav from "./components/nav.vue";
 import ChatBot from "./components/features/chatbot.vue";
-import CanvasAnimation from "./components/features/canvas.vue";
 import { onMounted } from "vue";
 import AOS from "aos";
 
@@ -19,12 +17,10 @@ export default {
   components: {
     Nav,
     ChatBot,
-    CanvasAnimation,
   },
   data() {
     return {
       isScrollDown: false,
-      darkMode: sessionStorage.getItem('darkMode') !== 'false',
     };
   },
   mounted() {
@@ -39,22 +35,38 @@ export default {
 
     Zoomtastic.listen('[zoomtastic]', 'src');
 
-    AOS.init();
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      offset: 80,
+      once: true,
+      disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    });
   },
 };
 </script>
 
 <style lang="scss">
-html, body {
+/* Only the viewport scrolls. "clip" trims sideways overflow without making
+   the element a second vertical scroll container, as "hidden" would. */
+html {
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
 }
 
-#app {
-  overflow-x: hidden;
+body, #app {
+  overflow-x: clip;
   width: 100%;
-  max-width: 100vw;
+}
+
+:root {
+  --color-primary: #17967F;
+  --color-primary-rgb: 23, 150, 127;
+  --color-secondary: #D76436;
+  --color-secondary-rgb: 215, 100, 54;
+}
+
+[id] {
+  scroll-margin-top: 76px;
 }
 
 * { 
@@ -77,18 +89,6 @@ html, body {
 }
 
 
-.dark-mode {
-  background: #1A1A1A;
-  color:white;
-  .vue-typer {
-    .custom.char {
-      color: white;
-    }
-  }
-  .btn, .btn-color-2{
-    color: white !important;
-  }
-}
 
 
 </style>

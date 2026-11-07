@@ -3,8 +3,8 @@
     <!-- Header Type & Category -->
     <div class="row pb-3">
       <div class="col-12" data-aos="fade-down">
-        <span class="text-success fw-bold small text-uppercase tracking-wider mr-3" v-if="project.type">{{ project.type }}</span>
-        <span v-if="project.category" class="badge rounded-pill bg-success-light text-success px-3 py-1">{{ project.category }}</span>
+        <span class="text-brand fw-bold small text-uppercase tracking-wider mr-3" v-if="project.type">{{ project.type }}</span>
+        <span v-if="project.category" class="badge rounded-pill bg-brand-light text-brand px-3 py-1">{{ project.category }}</span>
       </div>
     </div>
 
@@ -49,20 +49,11 @@
           </div>
         </div>
 
-        <div class="tech-section mb-5">
-          <h6 class="text-uppercase tracking-wider fw-bold text-muted mb-3">Technologies</h6>
-          <div class="d-flex flex-wrap mt-3">
-            <span v-for="(tech, i) in project.technologies" :key="i" class="tech-pill mx-1 mb-2">
-              {{ tech }}
-            </span>
-          </div>
-        </div>
-
         <div class="d-flex mt-4 flex-wrap actions-container">
           <a v-if="project.github" :href="project.github" target="_blank" class="btn btn-outline-dark rounded-pill px-4 mr-3 mb-2">
             <i class="fa-brands fa-github mr-2"></i> Code
           </a>
-          <a v-if="project.live" :href="project.live" target="_blank" class="btn btn-outline-success rounded-pill px-4 mb-2">
+          <a v-if="project.live" :href="project.live" target="_blank" class="btn btn-outline-brand rounded-pill px-4 mb-2">
             <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> View
           </a>
         </div>
@@ -223,22 +214,23 @@ export default {
   object-fit: cover;
 }
 
+.text-brand { color: var(--color-primary); }
+.bg-brand-light { background-color: rgba(var(--color-primary-rgb), 0.1); }
+.btn-outline-brand {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline-brand:hover {
+  color: #fff;
+  background-color: var(--color-primary);
+}
+
 .bg-danger-light { background-color: rgba(220, 53, 69, 0.1); }
 .bg-indigo-light { background-color: rgba(99, 102, 241, 0.1); }
 .text-indigo { color: #6366F1; }
 .bg-warning-light { background-color: rgba(255, 193, 7, 0.1); }
 
 .tracking-wider { letter-spacing: 0.05em; }
-
-/* Tech Pills */
-.tech-pill {
-  background-color: #f3f4f6;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  color: #374151;
-  font-weight: 500;
-}
 
 /* Media Tabs */
 .media-tabs {
@@ -334,8 +326,8 @@ export default {
   height: 40px;
   min-width: 40px;
   border-radius: 10px;
-  background: rgba(40, 167, 69, 0.05);
-  color: #28a745;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,15 +352,4 @@ export default {
 }
 
 /* Dark Mode Overrides */
-.dark-mode .main-title { color: white; }
-.dark-mode .tech-pill { background: #2d2d2d; color: #ccc; }
-.dark-mode .media-tabs { background: #1a1a1a; }
-.dark-mode .tab-btn.active { background: #333; color: white; }
-.dark-mode .feature-card { background: #1a1a1a; border-color: #333; }
-.dark-mode .feature-title { color: #eee; }
-.dark-mode .browser-frame { border-color: #333; }
-.dark-mode .browser-header { background: #222; border-color: #333; }
-.dark-mode .address-bar { background: #111; border-color: #333; color: #666; }
-.dark-mode .testimonial-card { background: #1a1a1a; border-left-color: #6366F1; }
-.dark-mode .italic-review { color: #ccc; }
 </style>

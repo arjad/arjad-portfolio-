@@ -1,6 +1,41 @@
 <template>
   <section id="about" class="container">
-    <div class="marquee-section mb-5">
+    <!-- Key Metrics / Achievements Stats -->
+    <div class="stats-band">
+      <div class="stats-band-bg" style="background-image: url('/office-team.jpg');" aria-hidden="true"></div>
+      <div class="container stats-band-content">
+        <div class="row justify-content-center">
+          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="stat-card p-3 text-center">
+              <h3 class="stat-number mb-1">7+</h3>
+              <p class="stat-label m-0">Years of Experience</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-card p-3 text-center">
+              <h3 class="stat-number mb-1">20+</h3>
+              <p class="stat-label m-0">Projects Delivered</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-card p-3 text-center">
+              <h3 class="stat-number mb-1 d-flex align-items-center justify-content-center gap-1">
+                5.0 <i class="fa-solid fa-star text-warning fs-2 ms-2 ml-2 "></i>
+              </h3>
+              <p class="stat-label m-0">Rating</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-card p-3 text-center">
+              <h3 class="stat-number mb-1">15+</h3>
+              <p class="stat-label m-0">Clients Worked With</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-section mb-5" data-aos="fade">
       <h5 class="text-center text-uppercase text-muted tracking-wider mb-4 fw-bold">Previously Worked With</h5>
       <div class="marquee-container">
         <div class="marquee-track">
@@ -16,39 +51,9 @@
       </div>
     </div>
 
-    <!-- Key Metrics / Achievements Stats Grid -->
-    <div class="stats-grid row justify-content-center g-3 g-md-4 my-4 my-md-5" data-aos="fade-up">
-      <div class="col-6 col-md-3">
-        <div class="stat-card p-3 text-center">
-          <h3 class="stat-number mb-1">7+</h3>
-          <p class="stat-label m-0">Years of Experience</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card p-3 text-center">
-          <h3 class="stat-number mb-1">20+</h3>
-          <p class="stat-label m-0">Projects Delivered</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card p-3 text-center">
-          <h3 class="stat-number mb-1 d-flex align-items-center justify-content-center gap-1">
-            5.0 <i class="fa-solid fa-star text-warning fs-2 ms-2 ml-2 "></i>
-          </h3>
-          <p class="stat-label m-0">Rating</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="stat-card p-3 text-center">
-          <h3 class="stat-number mb-1">15+</h3>
-          <p class="stat-label m-0">Clients Worked With</p>
-        </div>
-      </div>
-    </div>
-
     <Heading :title="'Industries'" :subtitle="'Delivering bespoke digital solutions, strategic architectures, and product experiences across diverse industry verticals.'" />
-    <div class="row g-4 my-5 px-lg-3" data-aos="fade-up">
-      <div v-for="(industry, index) in industries" :key="index" class="col-12 col-xl-6">
+    <div class="row g-4 my-5 px-lg-3">
+      <div v-for="(industry, index) in industries" :key="index" class="col-12 col-xl-6" data-aos="fade-up" :data-aos-delay="(index % 2) * 120">
         <div class="industry-list-card h-100 p-4 position-relative d-flex flex-column">
           <div class="d-flex align-items-center justify-content-between mb-3 w-100 gap-3">
             <div class="d-flex align-items-center">
@@ -76,57 +81,40 @@
       </div>
     </div>
 
-    <Heading :title="'What I Do'" :subtitle="'Services & Capabilities'" />
+    <div id="services">
+      <Heading :title="'What We Do'" :subtitle="'Complete packages, each starting with a quick discovery call'" />
+    </div>
 
-    <div class="what-i-do-grid row justify-content-center g-4 my-4">
-      <div 
-        v-for="(service, index) in services" 
-        :key="service.id" 
-        class="col-12 col-lg-6 d-flex align-items-stretch my-3" 
-        data-aos="fade-up" 
-        :data-aos-duration="600 + index * 150"
+    <div class="what-i-do-grid row justify-content-center my-4">
+      <div
+        v-for="(service, index) in services"
+        :key="service.id"
+        class="col-12 col-lg-6 d-flex align-items-stretch my-3"
+        data-aos="fade-up"
+        :data-aos-delay="(index % 2) * 120"
       >
-        <div 
-          class="service-card p-3 p-md-4 text-start w-100 position-relative d-flex flex-column" 
-          :class="{ 'is-expanded': expandedServiceId === service.id }"
-          @click="handleCardClick(service.id)"
-        >
-          <!-- Single Row Header: Icon + Heading + Plus Icon -->
-          <div class="service-row-header d-flex align-items-center justify-content-between w-100 gap-3">
-            <div class="d-flex align-items-center gap-3">
-              <div class="service-icon-wrapper flex-shrink-0 me-3">
-                <i :class="service.icon + ' service-icon'"></i>
-              </div>
-              <h4 class="service-title m-0 ms-1">{{ service.title }}</h4>
+        <article class="service-card w-100 position-relative d-flex flex-column">
+          <div class="d-flex align-items-center">
+            <div class="service-icon-wrapper flex-shrink-0">
+              <i :class="service.icon + ' service-icon'"></i>
             </div>
-
-            <!-- Plus/Minus Toggle Button (Shown on Mobile and Tablet) -->
-            <button 
-              class="expand-btn d-inline-flex d-lg-none align-items-center justify-content-center flex-shrink-0 ms-auto"
-              @click.stop="toggleService(service.id)"
-              :title="expandedServiceId === service.id ? 'Collapse details' : 'Expand details'"
-            >
-              <i :class="expandedServiceId === service.id ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
-            </button>
+            <h4 class="service-title m-0">{{ service.title }}</h4>
           </div>
 
-          <!-- Content (Description + Details): Hidden on mobile/tablet when collapsed, visible when expanded or on desktop -->
-          <div 
-            class="service-content-body w-100 mt-3"
-            :class="{ 'd-none d-lg-block': expandedServiceId !== service.id }"
-          >
-            <p class="service-desc mb-3">{{ service.desc }}</p>
+          <p class="service-desc mt-3 mb-3">{{ service.desc }}</p>
 
-            <div class="service-details-container">
-              <ul class="details-list text-start ps-0 m-0 border-top pt-3 mt-2">
-                <li v-for="(detail, i) in service.details" :key="i" class="detail-item mb-2 d-flex align-items-center">
-                  <i class="fa-solid fa-check text-dark-accent me-3 flex-shrink-0"></i>
-                  <span>{{ detail }}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <p class="included-label">What's included</p>
+          <ul class="details-list flex-grow-1">
+            <li v-for="(detail, i) in service.details" :key="i" class="detail-item d-flex align-items-center">
+              <i class="fa-solid fa-check detail-check flex-shrink-0"></i>
+              <span>{{ detail }}</span>
+            </li>
+          </ul>
+
+          <a :href="discoveryCallLink(service.title)" class="discovery-btn">
+            Book a Quick Discovery Call <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
       </div>
     </div>
   </section>
@@ -142,7 +130,7 @@ export default {
     return {
       activeSection: 'experience',
       startDate: "2019-01-01",
-      expandedServiceId: null,
+      discoveryEmail: 'arjadgohar14@gmail.com',
       industries: [
         { 
           name: 'Medical & Healthcare', 
@@ -163,7 +151,7 @@ export default {
           iconClass: 'fa-solid fa-house-user', 
           iconBg: '#f59e0b',
           desc: '3D spatial floor planning, interactive material catalogs, architectural specs, and...',
-          tag: '3D / WebGL & Design Systems',
+          tag: '3D & Design Systems',
           tagColor: '#f59e0b'
         },
         { 
@@ -198,87 +186,66 @@ export default {
       ],
       services: [
         {
-          id: 'ui-ux',
-          title: 'UI / UX Design',
-          icon: 'fa-solid fa-palette',
-          desc: 'Crafting intuitive, high-converting digital user interfaces and modern responsive user experiences.',
-          details: [
-            'Interactive Wireframing & Prototyping',
-            'Design Systems & Component Libraries',
-            'User Journey Mapping & Usability Testing',
-            'Mobile-First Responsive Layouts'
-          ]
-        },
-        {
-          id: 'web-dev',
-          title: 'Web Development',
+          id: 'website',
+          title: 'Website Development',
           icon: 'fa-solid fa-code',
-          desc: 'Building fast, scalable, and secure full-stack web applications using modern web technologies.',
+          desc: 'A complete website package, from first design to a stable, secure launch.',
           details: [
-            'Vue.js & React Frontend Architecture',
-            'Ruby on Rails & Node.js Backend APIs',
-            'Database Optimization (PostgreSQL/MongoDB)',
-            'Performance Tuning & SEO Best Practices'
+            'Custom website design and development',
+            'We fix your deployment issues',
+            'We fix your security issues',
+            'Every integration covered'
           ]
         },
         {
-          id: 'ai-integration',
-          title: 'AI Integration',
-          icon: 'fa-solid fa-brain',
-          desc: 'Integrating LLM models, intelligent workflows, and automated AI agents into business platforms.',
-          details: [
-            'OpenAI / Claude / Llama API Integration',
-            'Custom AI Agents & Workflow Automation',
-            'RAG (Retrieval-Augmented Generation)',
-            'Smart Chatbots & Predictive Analytics'
-          ]
-        },
-        {
-          id: 'app-dev',
-          title: 'App Development',
+          id: 'application',
+          title: 'Application Development',
           icon: 'fa-solid fa-mobile-screen-button',
-          desc: 'Developing cross-platform mobile apps and progressive web applications tailored for all devices.',
+          desc: 'A complete application package, from your idea to a stable, secure release.',
           details: [
-            'Progressive Web Applications (PWA)',
-            'Cross-Platform Mobile UI Design',
-            'Offline-First Capability & Local Storage',
-            'Fast Asset Loading & App Performance'
+            'Custom application design and development',
+            'We fix your deployment issues',
+            'We fix your security issues',
+            'Every integration covered'
           ]
         },
         {
-          id: 'dev-ops',
-          title: 'DevOps & Cloud',
-          icon: 'fa-solid fa-server',
-          desc: 'Streamlining deployment processes, setting up robust CI/CD pipelines, and managing cloud infrastructure.',
+          id: 'ai-automations',
+          title: 'AI Automations',
+          icon: 'fa-solid fa-brain',
+          desc: 'AI that takes repetitive work off your team and fits into the tools you already use.',
           details: [
-            'Docker & Containerization',
-            'CI/CD Pipelines (GitHub Actions)',
-            'Cloud Deployment (AWS, Vercel, Netlify)',
-            'Performance Monitoring & Security'
+            'Custom AI agents and workflow automation',
+            'Smart chatbots for your business',
+            'We fix your deployment and security issues',
+            'Every integration covered'
           ]
         },
         {
           id: 'seo',
-          title: 'Search Engine Optimization',
+          title: 'SEO Services',
           icon: 'fa-solid fa-magnifying-glass-chart',
           desc: 'Driving organic traffic and improving search rankings through data-driven SEO strategies.',
           details: [
-            'On-Page & Technical SEO',
-            'Keyword Research & Strategy',
-            'Backlink Building & Outreach',
-            'Performance Tracking & Analytics'
+            'On-page and technical SEO',
+            'Keyword research and strategy',
+            'Backlink building and outreach',
+            'Performance tracking and analytics'
           ]
         },
         {
-          id: 'marketing',
+          id: 'digital-marketing',
           title: 'Digital Marketing',
           icon: 'fa-solid fa-bullhorn',
-          desc: 'Creating impactful marketing campaigns to build brand awareness and drive customer acquisition.',
+          desc: 'Everything your brand needs to get noticed online, handled in one package.',
           details: [
-            'Social Media Marketing',
-            'Pay-Per-Click (PPC) Advertising',
-            'Content Marketing & Strategy',
-            'Email Campaign Management'
+            'Your logo',
+            'Your social media handling',
+            'Your website development',
+            'Your online presence',
+            'Your personal branding',
+            'SEO',
+            'Google AdSense'
           ]
         }
       ]
@@ -306,13 +273,9 @@ export default {
     setActiveSection(section) {
       this.activeSection = section;
     },
-    handleCardClick(id) {
-      if (window.innerWidth < 992) {
-        this.toggleService(id);
-      }
-    },
-    toggleService(id) {
-      this.expandedServiceId = this.expandedServiceId === id ? null : id;
+    discoveryCallLink(serviceTitle) {
+      const subject = encodeURIComponent(`Quick discovery call: ${serviceTitle}`);
+      return `mailto:${this.discoveryEmail}?subject=${subject}`;
     }
   },
 };
@@ -348,34 +311,67 @@ ul {
 .verticle-line{
   width: 15px;
   height: 100%;
-  background: linear-gradient(to right, #42b883 50%, #34495E 50%);
+  background: linear-gradient(to right, var(--color-primary) 50%, var(--color-secondary) 50%);
 }
 .verticle-line-right{
   right:0;
 }
 
 .text-green{
-  color: #42b883;
+  color: var(--color-primary);
 }
 .text-blue{
-  color: #34495E;
+  color: var(--color-secondary);
   text-decoration: underline;
 }
 
+.stats-band {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 10rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.stats-band-bg {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  bottom: -16px;
+  left: -16px;
+  z-index: -2;
+  background-size: cover;
+  background-position: center 65%;
+  filter: blur(4px);
+}
+
+.stats-band::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(17, 24, 39, 0.62);
+}
+
 .stat-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 18px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-  &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(17, 24, 39, 0.2);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  }
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .stat-number {
@@ -383,14 +379,14 @@ ul {
   font-size: 2.4rem;
   font-weight: 800;
   font-style: italic;
-  color: #42b883;
+  color: #ffffff;
   line-height: 1.1;
 }
 
 .stat-label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #4b5563;
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.01em;
 }
 
@@ -479,9 +475,10 @@ ul {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background: #f1f5f9;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 4rem;
+  background: rgba(var(--color-secondary-rgb), 0.08);
+  border-top: 1px solid rgba(var(--color-secondary-rgb), 0.15);
+  border-bottom: 1px solid rgba(var(--color-secondary-rgb), 0.15);
   padding: 2.5rem 0;
   overflow: hidden;
 }
@@ -533,7 +530,7 @@ ul {
   transition: all 0.3s ease;
 
   &:hover {
-    color: #42b883;
+    color: var(--color-primary);
     transform: translateY(-2px);
     background: transparent;
     border: none !important;
@@ -594,13 +591,68 @@ ul {
   justify-content: center;
 }
 
-.text-dark-accent {
-  color: #111827;
-}
-
 .service-icon {
   font-size: 1.5rem;
-  color: #111827;
+  color: var(--color-primary);
+}
+
+.service-card {
+  padding: 2rem;
+}
+
+.service-desc {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.included-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.detail-item {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.detail-check {
+  color: var(--color-primary);
+  margin-right: 0.85rem;
+}
+
+.discovery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 50px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.discovery-btn:hover {
+  background: var(--color-secondary);
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .service-title {
@@ -609,86 +661,9 @@ ul {
   color: #111827;
 }
 
-.service-desc {
-  font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.6;
-}
-
-.expand-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(17, 24, 39, 0.06);
-  border: 1px solid rgba(17, 24, 39, 0.15);
-  color: #111827;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin: 0;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #111827;
-    color: #ffffff;
-    border-color: #111827;
-    transform: scale(1.08);
-  }
-}
-
-.service-card.is-expanded {
-  border-color: rgba(17, 24, 39, 0.3) !important;
-}
-
-.expanded-details {
-  border-color: rgba(17, 24, 39, 0.1) !important;
-  animation: fadeInDown 0.35s ease forwards;
-}
-
-.details-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
-
-.detail-item {
-  font-size: 0.9rem;
-  color: #4b5563;
-  line-height: 1.5;
-  font-weight: 500;
-
-  i {
-    margin-right: 0.85rem !important;
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media screen and (max-width: 991.98px) {
   #about {
     margin-top: 100px;
-  }
-
-  .service-card {
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    padding: 0.85rem 0 !important;
-
-    &::before {
-      display: none !important;
-    }
   }
 
   .service-icon-wrapper {
@@ -703,6 +678,18 @@ ul {
 
   .service-title {
     font-size: 1.15rem !important;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .stats-band {
+    padding: 6rem 0;
+  }
+
+  .stats-band .col-6 {
+    padding: 0.5rem;
   }
 
   .stat-number {
@@ -722,132 +709,6 @@ ul {
 @media screen and (max-width: 375px) {
   .details-container h3 {
     font-size: 14px;
-  }
-}
-</style>
-
-<style lang="scss">
-.dark-mode {
-  .marquee-section {
-    background: rgba(40, 40, 40, 0.6) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
-
-  .company-badge {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: #e2e8f0 !important;
-
-    &:hover {
-      background: transparent !important;
-      border: none !important;
-      color: #42b883 !important;
-    }
-  }
-
-  .service-card {
-    background: rgba(40, 40, 40, 0.6) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-
-    &::before {
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(66, 184, 131, 0.35) 50%,
-        transparent 100%
-      ) !important;
-    }
-
-    &:hover {
-      border-color: rgba(66, 184, 131, 0.5) !important;
-      box-shadow: 0 15px 40px rgba(66, 184, 131, 0.25) !important;
-    }
-  }
-
-  @media screen and (max-width: 991.98px) {
-    .service-card {
-      background: transparent !important;
-      border: none !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: none !important;
-    }
-  }
-
-  .service-title {
-    color: #ffffff !important;
-  }
-
-  .service-desc {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .stat-card {
-    background: rgba(40, 40, 40, 0.6) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.25) !important;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
-    }
-  }
-
-  .stat-number {
-    color: #ffffff !important;
-  }
-
-  .stat-label {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .industry-list-card {
-    background: rgba(40, 40, 40, 0.8) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-
-    &::after {
-      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-    }
-
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.25) !important;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
-    }
-  }
-
-  .industry-title {
-    color: #ffffff !important;
-  }
-
-  .industry-desc {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .industry-tag {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  .industry-divider {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .service-icon-wrapper {
-    background: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .service-icon {
-    color: #42b883 !important;
-  }
-
-  .expand-btn {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    color: #ffffff !important;
-  }
-
-  .expand-btn:hover {
-    background: #ffffff !important;
-    color: #1a1a1a !important;
   }
 }
 </style>
